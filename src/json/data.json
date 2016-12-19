@@ -1,0 +1,54 @@
+{
+
+"TechTrail":[
+
+		{
+			"id": 1,
+			"quotes": "Anoop",
+			"ans":"rrr"
+		},
+
+		{
+			"id": 2,
+			"quotes": "Sabir",
+			"ans":"rrr"
+		},
+		{
+			"id" : 3,
+			"quotes": "Sreenath",
+			"ans":"rrr"
+		},
+		{
+			"id": 4,
+			"quotes" : "Seena",
+			"ans":"rrr"
+		}
+
+
+],
+
+"FantasyTrail":[
+		{
+			"id": 5,
+			"quotes": "Anoop",
+			"ans":"rrr"
+		},
+
+		{
+			"id": 6,
+			"quotes": "Anoop",
+			"ans":"rrr"
+		},
+		{
+			"id": 7,
+			"quotes": "Anoop",
+			"ans":"rrr"
+		}
+
+
+]
+
+
+
+
+}
