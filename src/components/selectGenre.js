@@ -1,18 +1,24 @@
 import React from 'react'
 import $ from 'jquery'
 
-const SelectGenre = () => (
-  <div>
-    <select onChange = {change}>
-	  <option value="Tech Trail">Tech Trail</option>
-	  <option value="Fantasy Trail">Fantasy Trail</option>
-	</select>
-  </div>
-)
+export default class SelectGenre  extends React.Component{
 
-function change(e){
-console.log("changed selector state")
+render(){
+
+return(
+
+		<div>
+    		<select onChange = { (e)=>{this.props.change(e)} }>
+				  <option value="TechTrail">Tech Trail</option>
+				  <option value="FantasyTrail">Fantasy Trail</option>
+			</select>
+  		</div>
+);
+
+
+}
+
 }
 
 
-export default SelectGenre
+

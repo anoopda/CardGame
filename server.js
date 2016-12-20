@@ -12,5 +12,5 @@ app.get('/', function(req, res) {
 
 
 var server = http.createServer(app);
-server.listen(8000);
-console.log('Listening on port 2000...');
+server.listen(2000);
+console.log('Listening on port 7000...');

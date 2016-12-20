@@ -6,50 +6,57 @@ import $ from 'jquery'
 import { Provider } from 'react-redux'
 import App from './components/app'
 import reducers from './reducers/index'
-
+import CardWrapper from './components/cardWrapper'
 
 const store = createStore(reducers)
 const rootEl= document.getElementById('root')
-
 export default class Main extends React.Component {
 
 constructor(props){
 	super(props)
 	this.change = this.change.bind(this)
-	this.clickDetect =this.clickDetect.bind(this)
+  this.genreCheck = this.genreCheck.bind(this)
 }
 
-componentWillMount(){
+componentDidMount(){
 	$.ajax({
-    url: "http://localhost:8000/src/json/data.json",
+    url: "http://localhost:2000/src/json/data.json",
     dataType: "json",
     success : function(val){
-    console.log(val);
-    store.dispatch({type:"dataLoad"})
+    store.dispatch({type:"loadData", data:val}) 
     }.bind(this)
 });
 }
 
-change(){
-console.log("blahhh");
+change(e){ 
+store.dispatch({type:"genreAction",currentGenre:e.target.value})
+this.genreCheck();
 }
 
-clickDetect(){
-store.dispatch({type:"genreAction"})
-console.log(state);
+genreCheck(){
+    const state=store.getState().genreState.data,
+          currentvalue = store.getState().genreState.currentGenre;
+          store.dispatch({ type:"currentData", currentdata:store.getState().genreState.data[currentvalue] })       
 }
+
 
 render(){
-  const state = store.getState()  
+  store.subscribe(()=>{
+
+  })
+     
 	return(
-    	<Provider store={store}>
-      		<div>
-         		< App change = {this.props.change} />
-         		<button onClick={this.clickDetect}></button>
-        	</div> 
+    	<Provider store = {store}>
+      	  <div> 
+         		<App change = {this.change} />
+        	   < CardWrapper / >
+          </div>   
       </ Provider>
-        );	 
+  );	 
 }
+
+
+
 
 }
 

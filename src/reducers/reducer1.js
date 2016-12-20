@@ -2,14 +2,27 @@
 import reducers from '../reducers/index'
 
 
-const genreReducer = ( state ="initial state" , action) => {
+const genreReducer = ( state ={} , action) => {	
+
   switch (action.type) {
-    case 'genreAction':
-      return state = "changed state" 
-    case 'dataLoad':
-      return state = {"data":val}  
+    case 'genreAction':{
+    	state.currentGenre=action.currentGenre;
+      break;
+}
+
+    case 'loadData':{
+    	state.data=action.data;
+    	break;
+     }  
+
+     case 'currentData':{
+      state.currentdata = action.currentdata;
+      break;
+     }
+
     default:
-      return state
+      break;
   }
+  return state
 }
 export default genreReducer 
